@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: "Roboto", "serif";
+  --font-nunito: "Nunito", "serif";
+  --color-blue-satori: #3EC5EF;
+  --color-yellow-satori: #DCD64E;
+  --color-blue-variant: #1F9EC2;
+  --color-yellow-variant: #ECE750;
+  --color-gray: #7C7D7D;
+  --color-black: #1D1B20;
+  --color-divider-color: #D9D9D9;
+  --color-white: #ffffff;
+  --color-gray-secondary: #757575;
+}
