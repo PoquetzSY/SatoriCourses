@@ -1,5 +1,5 @@
 <script>
-import ButtonComponent from './common/ButtonComponent.vue';
+import ButtonComponent from './common/ButtonComponent.vue'
 
 export default {
   name: 'CardInfo',
@@ -23,14 +23,14 @@ export default {
   },
   computed: {
     cardImage() {
-      return `/platformImages/${this.platform}.webp`;
+      return `/assets/platformImages/${this.platform}.webp`
     },
   },
-    methods: {
-        handleClick() {
-            this.$emit("buttonClick");
-        },
+  methods: {
+    handleClick() {
+      this.$emit('buttonClick')
     },
+  },
 }
 </script>
 
@@ -39,16 +39,12 @@ export default {
     <img :src="cardImage" alt="Platform-image" class="w-full h-48 object-cover object-center" />
     <div class="flex flex-col p-4 gap-4">
       <p class="text-lg text-black font-roboto">{{ title }}</p>
-      
+
       <p class="text-base text-gray-secondary truncate">{{ description }}</p>
-      
+
       <div class="flex justify-end gap-4">
-        <ButtonComponent variant="primary" @buttonClick="handleClick">
-          Detalles
-        </ButtonComponent>
-        <ButtonComponent variant="outline" @buttonClick="handleClick">
-          Avance
-        </ButtonComponent>
+        <ButtonComponent variant="primary" @buttonClick="handleClick"> Detalles </ButtonComponent>
+        <ButtonComponent variant="outline" @buttonClick="handleClick"> Avance </ButtonComponent>
       </div>
     </div>
   </div>
