@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     cardImage() {
-      return `/public/platformImages/${this.platform}.webp`;
+      return `/platformImages/${this.platform}.webp`;
     },
   },
     methods: {
