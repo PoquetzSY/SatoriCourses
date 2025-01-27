@@ -11,10 +11,11 @@ export default {
   computed: {
     buttonClass() {
       return {
-        'bg-primary-color text-white-color hover:bg-secondary-color': this.variant === 'primary',
-        'bg-white-color text-primary-color hover:bg-primary-color hover:text-white-color':
+        'bg-blue-satori text-white hover:bg-yellow-satori hover:text-black':
+          this.variant === 'primary',
+        'bg-yellow-satori text-black hover:bg-blue-satori hover:text-white':
           this.variant === 'secondary',
-        'border border-white text-white-color hover:border-secondary-color hover:text-white-color':
+        'border border-divider-color text-black hover:border-gray hover:bg-gray hover:text-white':
           this.variant === 'outline',
       }
     },
@@ -28,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <button class="px-4 py-2 rounded-md text-center" :class="buttonClass" @click="handleClick">
+  <button class="px-4 py-2 rounded-md text-center font-roboto transition" :class="buttonClass" @click="handleClick">
     <slot></slot>
   </button>
 </template>

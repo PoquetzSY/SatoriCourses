@@ -1,6 +1,11 @@
 <script>
+import ButtonComponent from './common/ButtonComponent.vue';
+
 export default {
   name: 'CardInfo',
+  components: {
+    ButtonComponent,
+  },
 }
 </script>
 
@@ -9,11 +14,15 @@ export default {
     <img class="w-full h-[160px] object-cover" src="./../assets/placeholder.png" alt="Card image" />
     <div class="p-4">
       <h1 class="text-xl font-semibold">Card Title</h1>
-      <p class="text-gray-500">Card description</p>
+      <p class="text-gray-500">Card descriptionsdfsdfatsdvfuyssefiadfiogdfiuhdsfigdfhgbdkhjgbdfjhkgbdfhjkgvfdshjghdjsfkgvdhjfkhg</p>
       
-      <div class="flex justify-between items-center mt-4">
-        <button class="bg-blue-satori text-white-color hover:bg-yellow-satori">Action</button>
-        <button class="border border-white text-white-color hover:border-secondary-color hover:text-white-color">Action</button>
+      <div class="flex justify-end gap-4 mt-4">
+        <ButtonComponent variant="primary">
+          Detalles
+        </ButtonComponent>
+        <ButtonComponent variant="outline">
+          Avance
+        </ButtonComponent>
       </div>
     </div>
   </div>
