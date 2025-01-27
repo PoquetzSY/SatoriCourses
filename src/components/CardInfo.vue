@@ -26,6 +26,11 @@ export default {
       return `/public/platformImages/${this.platform}.webp`;
     },
   },
+    methods: {
+        handleClick() {
+            this.$emit("buttonClick");
+        },
+    },
 }
 </script>
 
@@ -38,10 +43,10 @@ export default {
       <p class="text-base text-gray-secondary truncate">{{ description }}</p>
       
       <div class="flex justify-end gap-4">
-        <ButtonComponent variant="primary">
+        <ButtonComponent variant="primary" @buttonClick="handleClick">
           Detalles
         </ButtonComponent>
-        <ButtonComponent variant="outline">
+        <ButtonComponent variant="outline" @buttonClick="handleClick">
           Avance
         </ButtonComponent>
       </div>
