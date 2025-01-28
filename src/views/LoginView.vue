@@ -1,13 +1,15 @@
 <script>
-import router from '@/router';
+import router from '@/router'
 import FooterUser from '../components/FooterUser.vue'
 import CustomInput from '../components/CustomInput.vue'
+import ButtonComponent from '@/components/common/ButtonComponent.vue'
 
 export default {
   name: 'LoginView',
   components: {
     FooterUser,
     CustomInput,
+    ButtonComponent,
   },
   methods: {
     handleSubmit(event) {
@@ -26,11 +28,9 @@ export default {
           <h1 class="text-3xl font-bold text-blue-satori">Iniciar sesión</h1>
           <p class="text-gray-secondary text-sm font-bold">Plataforma de capacitación</p>
         </div>
-        <CustomInput label="Correo electrónico" type="email" :required="true"/>
+        <CustomInput label="Correo electrónico" type="email" :required="true" />
         <CustomInput label="Contraseña" value="" type="password" />
-        <button class="bg-blue-satori text-white rounded-md p-2 mt-4 w-full cursor-pointer" type="submit">
-          Iniciar sesión
-        </button>
+        <ButtonComponent variant="primary">Iniciar sesión</ButtonComponent>
       </form>
     </section>
     <section class="w-1/2">
