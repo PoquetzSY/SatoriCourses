@@ -28,9 +28,9 @@ export default {
           <h1 class="text-3xl font-bold text-blue-satori">Iniciar sesión</h1>
           <p class="text-gray-secondary text-sm font-bold">Plataforma de capacitación</p>
         </div>
-        <CustomInput label="Correo electrónico" type="email" :required="true" />
+        <CustomInput label="Correo electrónico" type="email"/>
         <CustomInput label="Contraseña" value="" type="password" />
-        <ButtonComponent variant="primary">Iniciar sesión</ButtonComponent>
+        <ButtonComponent variant="primary" @click="handleSubmit">Iniciar sesión</ButtonComponent>
       </form>
     </section>
     <section class="w-1/2">

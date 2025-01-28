@@ -1,30 +1,31 @@
 <template>
   <div class="flex flex-col font-nunito">
     <label class="text-black text-sm pb-2">{{ label }}</label>
-    <div>
+    <div class="relative">
       <input
-        class="border border-divider-color rounded-2xl py-2 px-4 w-full"
+        class="border border-divider-color rounded-2xl py-2 px-4 w-full pr-10"
         :type="inputType"
-        :value="internalValue"
-        @input="updateValue($event.target.value)"
+        v-model="internalValue"
+        @input="updateValue"
         :placeholder="placeholder"
         :required="required"
       />
-      <button
+      <div
         v-if="type === 'password'"
-        class="absolute right-4 top-1/2 transform -translate-y-1/2"
+        class="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
         @click="togglePasswordVisibility"
       >
         <img
-          v-if="isPasswordVisible"
-          src="/assets/icon/password_show.svg"
+          v-if="!isPasswordVisible"
+          src=""
           alt="Ocultar contraseña"
         />
-        <img v-else src="/assets/icon/password_hide.svg" alt="Mostrar contraseña" />
-      </button>
+        <img v-else src="" alt="Mostrar contraseña" />
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: 'custom-input',
@@ -39,9 +40,10 @@ export default {
     },
     placeholder: {
       type: String,
-      required: '',
+      required: false,
     },
     type: {
+      type: String,
       default: 'text',
     },
     required: {
@@ -52,22 +54,25 @@ export default {
   data() {
     return {
       isPasswordVisible: false,
+      internalValue: this.value,
     }
   },
   computed: {
-    internalValue() {
-      return this.value
-    },
     inputType() {
       return this.type === 'password' && this.isPasswordVisible ? 'text' : this.type
+    },
+  },
+  watch: {
+    value(newValue) {
+      this.internalValue = newValue
     },
   },
   methods: {
     togglePasswordVisibility() {
       this.isPasswordVisible = !this.isPasswordVisible
     },
-    updateValue(value) {
-      this.$emit('input', value)
+    updateValue(event) {
+      this.$emit('input', event)
     },
   },
 }
