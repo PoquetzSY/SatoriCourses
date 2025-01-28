@@ -5,7 +5,7 @@
       <input
         class="border border-divider-color rounded-2xl py-2 px-4 w-full pr-10"
         :type="inputType"
-        v-model="internalValue"
+        :value="value"
         @input="updateValue"
         :placeholder="placeholder"
         :required="required"
@@ -34,27 +34,26 @@ export default {
       type: String,
       required: true,
     },
-    value: {
-      type: String,
-      default: '',
-    },
-    placeholder: {
-      type: String,
-      required: false,
-    },
     type: {
       type: String,
       default: 'text',
+    },
+    placeholder: {
+      type: String,
+      default: '',
     },
     required: {
       type: Boolean,
       default: false,
     },
+    value: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
       isPasswordVisible: false,
-      internalValue: this.value,
     }
   },
   computed: {
@@ -62,20 +61,14 @@ export default {
       return this.type === 'password' && this.isPasswordVisible ? 'text' : this.type
     },
   },
-  watch: {
-    value(newValue) {
-      this.internalValue = newValue
-    },
-  },
   methods: {
     togglePasswordVisibility() {
       this.isPasswordVisible = !this.isPasswordVisible
     },
     updateValue(event) {
-      this.$emit('input', event)
+      this.$emit('input', event.target.value)
+      console.log('CustomInput emitted value:', event.target.value) // Log dentro del hijo
     },
   },
 }
 </script>
-
-<style scoped></style>
