@@ -1,13 +1,15 @@
 <script>
-import router from '@/router';
+import router from '@/router'
 import FooterUser from '../components/FooterUser.vue'
-import TextFieldInput from '../components/TextFieldInput.vue'
+import CustomInput from '../components/CustomInput.vue'
+import ButtonComponent from '@/components/common/ButtonComponent.vue'
 
 export default {
   name: 'LoginView',
   components: {
     FooterUser,
-    TextFieldInput,
+    CustomInput,
+    ButtonComponent,
   },
   computed: {
     isAdmin() {
@@ -45,11 +47,9 @@ export default {
             {{ isAdmin ? 'Panel de administrador' : 'Plataforma de capacitación' }}
           </p>
         </div>
-        <TextFieldInput label="Correo electrónico" value="" type="email" />
-        <TextFieldInput label="Contraseña" value="" type="password" />
-        <button :class="`bg-${color}-satori text-white rounded-md p-2 mt-4 w-full cursor-pointer`" type="submit">
-          Iniciar sesión
-        </button>
+        <CustomInput label="Correo electrónico" type="email" :required="true" />
+        <CustomInput label="Contraseña" value="" type="password" />
+        <ButtonComponent variant="primary">Iniciar sesión</ButtonComponent>
       </form>
     </section>
 
