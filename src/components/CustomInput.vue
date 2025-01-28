@@ -16,11 +16,11 @@
         @click="togglePasswordVisibility"
       >
         <img
-          v-if="!isPasswordVisible"
-          src=""
+          v-if="isPasswordVisible"
+          src="/src/assets/icons/password-hide.svg"
           alt="Ocultar contraseña"
         />
-        <img v-else src="" alt="Mostrar contraseña" />
+        <img v-else src="/src/assets/icons/password-show.svg" alt="Mostrar contraseña" />
       </div>
     </div>
   </div>
