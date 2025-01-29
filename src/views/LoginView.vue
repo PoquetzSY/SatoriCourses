@@ -1,10 +1,17 @@
 <template>
   <div class="w-full flex font-nunito login-container">
+
+    <section class="w-1/2" v-if="isAdmin">
+      <img class="object-cover w-full h-full" src="./../assets/login-admin-image.svg" alt="Imagen Admin" />
+    </section>
+
     <section class="w-1/2 flex items-center">
       <form class="w-[400px] mx-auto flex flex-col gap-y-12" @submit.prevent="submitForm">
         <div>
-          <h1 class="text-3xl font-bold text-blue-satori">Iniciar sesión</h1>
-          <p class="text-gray-secondary text-sm font-bold">Plataforma de capacitación</p>
+          <h1 :class="`text-${color}-satori text-3xl font-bold`">Iniciar sesión</h1>
+          <p class="text-gray-secondary text-sm font-bold">
+            {{ isAdmin ? 'Panel de administrador' : 'Plataforma de capacitación' }}
+          </p>
         </div>
         <div>
           <CustomInput
@@ -33,9 +40,11 @@
         <ButtonComponent variant="primary">Iniciar sesión</ButtonComponent>
       </form>
     </section>
-    <section class="w-1/2">
-      <img class="object-cover w-full h-full" src="./../assets/login-user-image.svg" alt="" />
+
+    <section class="w-1/2" v-if="!isAdmin">
+      <img class="object-cover w-full h-full" src="./../assets/login-user-image.svg" alt="Imagen Usuario" />
     </section>
+  
   </div>
   <FooterUser />
 </template>
