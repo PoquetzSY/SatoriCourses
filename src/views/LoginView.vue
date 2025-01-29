@@ -1,8 +1,11 @@
 <template>
   <div class="w-full flex font-nunito login-container">
-
     <section class="w-1/2" v-if="isAdmin">
-      <img class="object-cover w-full h-full" src="./../assets/login-admin-image.svg" alt="Imagen Admin" />
+      <img
+        class="object-cover w-full h-full"
+        src="./../assets/login-admin-image.svg"
+        alt="Imagen Admin"
+      />
     </section>
 
     <section v-else class="w-1/2 order-last">
@@ -13,7 +16,9 @@
       <form class="w-[400px] mx-auto flex flex-col gap-y-12" @submit.prevent="submitForm">
         <div>
           <h1 :class="`text-${color}-satori text-3xl font-bold`">Iniciar sesión</h1>
-          <p class="text-gray-secondary text-sm font-bold">{{ isAdmin ? 'Panel de administrador' : 'Plataforma de capacitación' }}</p>
+          <p class="text-gray-secondary text-sm font-bold">
+            {{ isAdmin ? 'Panel de administrador' : 'Plataforma de capacitación' }}
+          </p>
         </div>
         <div>
           <CustomInput
@@ -74,13 +79,13 @@ export default {
   },
   computed: {
     isAdmin() {
-      return this.$route.meta.role === 'admin';
+      return this.$route.meta.role === 'admin'
     },
     color() {
-      return this.isAdmin ? 'yellow' : 'blue';
+      return this.isAdmin ? 'yellow' : 'blue'
     },
     variant() {
-      return this.isAdmin ? 'primary' : 'secondary';
+      return this.isAdmin ? 'primary' : 'secondary'
     },
   },
   methods: {
