@@ -39,17 +39,23 @@ export default {
 
 <style>
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease-in-out;
 }
-.fade-enter, .fade-leave-to {
+
+.fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
+
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
+}
+
 </style>
 
 
 <template>
   <transition name="fade">
-    <div v-if="isOpen" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div v-if="isOpen" class="fixed inset-0 flex items-center justify-center bg-black/70">
       
       <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative flex items-center">
         <img :src="image" alt="Curso" class="w-30 h-30 object-cover rounded-lg mr-6">
