@@ -1,8 +1,15 @@
 <template>
   <div class="w-full flex font-nunito login-container">
-
     <section class="w-1/2" v-if="isAdmin">
-      <img class="object-cover w-full h-full" src="./../assets/login-admin-image.svg" alt="Imagen Admin" />
+      <img
+        class="object-cover w-full h-full"
+        src="./../assets/login-admin-image.svg"
+        alt="Imagen Admin"
+      />
+    </section>
+
+    <section v-else class="w-1/2 order-last">
+      <img class="object-cover w-full h-full" src="./../assets/login-user-image.svg" alt="" />
     </section>
 
     <section class="w-1/2 flex items-center">
@@ -37,14 +44,9 @@
           />
           <CustomError v-if="errorMessages.password">{{ errorMessages.password }}</CustomError>
         </div>
-        <ButtonComponent variant="primary">Iniciar sesión</ButtonComponent>
+        <ButtonComponent :variant="variant">Iniciar sesión</ButtonComponent>
       </form>
     </section>
-
-    <section class="w-1/2" v-if="!isAdmin">
-      <img class="object-cover w-full h-full" src="./../assets/login-user-image.svg" alt="Imagen Usuario" />
-    </section>
-  
   </div>
   <FooterUser />
 </template>
@@ -74,6 +76,17 @@ export default {
         password: '',
       },
     }
+  },
+  computed: {
+    isAdmin() {
+      return this.$route.meta.role === 'admin'
+    },
+    color() {
+      return this.isAdmin ? 'yellow' : 'blue'
+    },
+    variant() {
+      return this.isAdmin ? 'primary' : 'secondary'
+    },
   },
   methods: {
     clearError(field) {
